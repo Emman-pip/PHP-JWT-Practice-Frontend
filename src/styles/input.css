@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-blue {
+	@apply bg-blue-200 hover:bg-blue-300 text-white hover:text-gray-100 transition-all duration-150 rounded-lg h-10 font-bold cursor-pointer shadow border;
+}
+
+.btn-red {
+	@apply bg-red-200 hover:bg-red-300 text-white hover:text-gray-100 transition-all duration-150 rounded-lg h-10 font-bold cursor-pointer shadow border;
+}
+
+input[type="password"],
+input[type="text"] {
+	@apply rounded-lg h-10 p-3 border;
+}
