@@ -74,9 +74,7 @@ export function FormTemplate({
     } else {
       // action when sign up
       const signupRes = await signUp(link, data);
-      if (!signupRes.ok) {
-        toggleHide();
-      }
+      !signupRes.ok ? toggleHide() : toggleHiddenSection();
     }
   }
   function toggleHide() {
@@ -131,6 +129,12 @@ export function FormTemplate({
   );
 }
 
+function toggleHiddenSection() {
+  const arr = ["loginSection", "signUpSection"];
+  arr.forEach((e) => {
+    document.getElementById(e).classList.toggle("hidden");
+  });
+}
 function redirectToHome(token, username) {
   //window.location.assign("http://localhost:5001"); // change this, make this into react route shit
   console.log(token);
@@ -141,12 +145,6 @@ export default function Main() {
   const data = new URLSearchParams();
   data.append("username", "emman");
   data.append("password", "iloveyou");
-  function toggleHiddenSection() {
-    const arr = ["loginSection", "signUpSection"];
-    arr.forEach((e) => {
-      document.getElementById(e).classList.toggle("hidden");
-    });
-  }
   return (
     <>
       <Nav />
